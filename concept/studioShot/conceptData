@@ -1,0 +1,15 @@
+[
+  {
+    "이름": "하이엔드 증명사진",
+    "컨셉설명": "증명사진의 정갈함에 모델의 깊이 있는 눈빛과 완벽한 조명을 더한 고급 프로필 컨셉입니다.",
+    "프롬프트내용": "Generate an image from the input photo, strictly preserving the person's exact likeness and outfit. Render it as a high-end identification photo or actor's headshot. Use flawless, even beauty lighting, a solid-colored premium backdrop (like deep navy or charcoal gray), a direct and confident gaze into the camera, and an exceptionally sharp focus.",
+    "이미지 폴더": "./image/high_end_id_photo"
+  },
+
+  {
+    "이름": "패션 캠페인 (우정/커플)",
+    "컨셉설명": "친구 또는 연인과 함께 찍는 사진을 세련된 패션 브랜드의 캠페인처럼 연출하는 컨셉입니다.",
+    "프롬프트내용": "Recreate the input photo, strictly preserving the person (or people) and their outfit(s). Style the scene like a high-end fashion brand campaign. The interaction should feel authentic yet posed. Use clean, professional studio lighting and a minimalist backdrop. The overall mood should be modern, chic, and sophisticated.",
+    "이미지 폴더": "./image/fashion_campaign_duo"
+  }
+]
