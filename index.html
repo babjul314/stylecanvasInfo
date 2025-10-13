@@ -1,147 +1,306 @@
-<!DOCTYPE html><html><head>
-  <!--
-    If you are serving your web app in a path other than the root, change the
-    href value below to reflect the base path you are serving from.
-
-    The path provided below has to start and end with a slash "/" in order for
-    it to work correctly.
-
-    For more details:
-    * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
-
-    This is a placeholder for base href that will be replaced by the value of
-    the `--base-href` argument provided to `flutter build`.
-  -->
-  <base href="$FLUTTER_BASE_HREF">
-
+<!DOCTYPE html>
+<html lang="ko">
+<head>
   <meta charset="UTF-8">
-  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
-  <meta name="description" content="A new Flutter project.">
-
-  <!-- iOS meta tags & icons -->
-  <meta name="mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="apple-mobile-web-app-title" content="StyleCanvas">
-  <link rel="apple-touch-icon" href="icons/Icon-192.png">
-
-  <!-- Favicon -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="StyleCanvas - 온라인에서 만나는 개인 맞춤 스타일 스튜디오">
+  <title>StyleCanvas 소개</title>
   <link rel="icon" type="image/png" href="favicon.png">
+  <style>
+    :root {
+      color-scheme: light dark;
+      --bg: #080810;
+      --bg-alt: #101020;
+      --card-bg: #ffffff;
+      --card-bg-dark: rgba(255, 255, 255, 0.08);
+      --accent: #9a77ff;
+      --accent-strong: #6a4bff;
+      --text: #1f1f2b;
+      --text-light: #5a5a72;
+      --radius: 18px;
+      font-family: "Noto Sans KR", "Apple SD Gothic Neo", "Segoe UI", sans-serif;
+    }
 
-  <title>StyleCanvas</title>
-  <link rel="manifest" href="manifest.json">
-  
-  
-  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  <style id="splash-screen-style">
-    html {
-      height: 100%
+    * {
+      box-sizing: border-box;
     }
 
     body {
       margin: 0;
-      min-height: 100%;
-      background-color: #FFFFFF;
-          background-size: 100% 100%;
+      background: linear-gradient(160deg, #090916, #0f1124 55%, #1a122e);
+      color: #f5f5ff;
+      line-height: 1.6;
+      min-height: 100vh;
     }
 
-    .center {
-      margin: 0;
+    header {
+      position: relative;
+      overflow: hidden;
+      padding: 76px 24px 120px;
+    }
+
+    header::before {
+      content: "";
       position: absolute;
-      top: 50%;
-      left: 50%;
-      -ms-transform: translate(-50%, -50%);
-      transform: translate(-50%, -50%);
+      inset: 0;
+      background-image: linear-gradient(120deg, rgba(10, 10, 30, 0.9), rgba(15, 15, 35, 0.4)), url("image/intro/1.png");
+      background-size: cover;
+      background-position: center;
+      filter: saturate(108%);
+      z-index: -2;
     }
 
-    .contain {
-      display:block;
-      width:100%; height:100%;
-      object-fit: contain;
+    header::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(9, 9, 22, 0.65) 0%, rgba(9, 9, 22, 0.85) 100%);
+      z-index: -1;
     }
 
-    .stretch {
-      display:block;
-      width:100%; height:100%;
+    .hero {
+      max-width: 1120px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 48px;
+      align-items: center;
     }
 
-    .cover {
-      display:block;
-      width:100%; height:100%;
+    .hero-copy h1 {
+      font-size: clamp(32px, 5vw, 52px);
+      margin: 0;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+    }
+
+    .hero-copy p {
+      margin: 24px 0 32px;
+      font-size: 18px;
+      color: rgba(245, 245, 255, 0.8);
+    }
+
+    .cta-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .cta-buttons a {
+      text-decoration: none;
+      padding: 14px 28px;
+      border-radius: 999px;
+      font-weight: 600;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .cta-primary {
+      color: #ffffff;
+      background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+      box-shadow: 0 12px 32px rgba(106, 75, 255, 0.35);
+    }
+
+    .cta-secondary {
+      color: rgba(245, 245, 255, 0.85);
+      border: 1px solid rgba(245, 245, 255, 0.35);
+      background: transparent;
+    }
+
+    .cta-buttons a:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 16px 36px rgba(106, 75, 255, 0.45);
+    }
+
+    .hero-visual {
+      position: relative;
+      display: grid;
+      gap: 18px;
+    }
+
+    .hero-visual img {
+      width: 100%;
+      border-radius: var(--radius);
+      box-shadow: 0 24px 42px rgba(0, 0, 0, 0.35);
       object-fit: cover;
     }
 
-    .bottom {
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      -ms-transform: translate(-50%, 0);
-      transform: translate(-50%, 0);
+    .hero-visual .stack {
+      display: grid;
+      gap: 18px;
     }
 
-    .bottomLeft {
-      position: absolute;
-      bottom: 0;
-      left: 0;
+    .section {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 96px 24px;
     }
 
-    .bottomRight {
-      position: absolute;
-      bottom: 0;
-      right: 0;
+    .section h2 {
+      font-size: clamp(24px, 4vw, 40px);
+      margin-bottom: 16px;
+      color: #fdfdff;
+    }
+
+    .section p.lead {
+      color: rgba(245, 245, 255, 0.72);
+      margin: 0 0 48px;
+      font-size: 18px;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 32px;
+    }
+
+    .feature-card {
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: var(--radius);
+      padding: 28px;
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      display: grid;
+      gap: 18px;
+      transition: transform 0.3s ease, border 0.3s ease;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(154, 119, 255, 0.55);
+    }
+
+    .feature-card img {
+      width: 100%;
+      border-radius: calc(var(--radius) - 6px);
+      object-fit: cover;
+      aspect-ratio: 4 / 3;
+    }
+
+    .feature-card h3 {
+      margin: 0;
+      font-size: 20px;
+      color: #ffffff;
+    }
+
+    .feature-card p {
+      margin: 0;
+      color: rgba(245, 245, 255, 0.78);
+      font-size: 16px;
+    }
+
+    .gallery {
+      margin-top: 64px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 18px;
+    }
+
+    .gallery img {
+      width: 100%;
+      border-radius: 16px;
+      object-fit: cover;
+      aspect-ratio: 3 / 4;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+    }
+
+    .gallery img:hover {
+      transform: translateY(-6px) scale(1.01);
+      box-shadow: 0 18px 42px rgba(0, 0, 0, 0.45);
+    }
+
+    footer {
+      padding: 48px 24px;
+      text-align: center;
+      color: rgba(255, 255, 255, 0.55);
+      font-size: 15px;
+    }
+
+    @media (max-width: 640px) {
+      header {
+        padding: 68px 20px 96px;
+      }
+
+      .feature-card {
+        padding: 24px;
+      }
+
+      .cta-buttons {
+        width: 100%;
+      }
+
+      .cta-buttons a {
+        flex: 1;
+        text-align: center;
+      }
     }
   </style>
-  <script id="splash-screen-script">
-    function removeSplashFromWeb() {
-      document.getElementById("splash")?.remove();
-      document.getElementById("splash-branding")?.remove();
-      document.body.style.background = "transparent";
-    }
-  </script>
 </head>
 <body>
-  <picture id="splash">
-      <source srcset="splash/img/light-1x.png 1x, splash/img/light-2x.png 2x, splash/img/light-3x.png 3x, splash/img/light-4x.png 4x" media="(prefers-color-scheme: light)">
-      <source srcset="splash/img/dark-1x.png 1x, splash/img/dark-2x.png 2x, splash/img/dark-3x.png 3x, splash/img/dark-4x.png 4x" media="(prefers-color-scheme: dark)">
-      <img class="center" aria-hidden="true" src="splash/img/light-1x.png" alt="">
-  </picture>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  <script src="flutter_bootstrap.js" async=""></script>
+  <header>
+    <div class="hero">
+      <div class="hero-copy">
+        <p class="tag" style="text-transform: uppercase; letter-spacing: 0.2em; color: rgba(245, 245, 255, 0.6); font-size: 14px;">디지털 스타일 스튜디오</p>
+        <h1>StyleCanvas로 언제 어디서나 나만의 룩을 완성해요</h1>
+        <p>온라인 쇼핑몰에 있는 옷을 가상으로 마음대로 입어보고, AI가 연출한 프로필 사진과 화보를 한 번에 만나보세요. 클릭 한 번이면 나만의 스타일링 스튜디오가 열립니다.</p>
+        <div class="cta-buttons">
+          <a class="cta-primary" href="#features">핵심 기능 살펴보기</a>
+          <a class="cta-secondary" href="#gallery">스타일 갤러리 보기</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <img src="image/intro/2.png" alt="StyleCanvas 가상 피팅 미리보기">
+        <div class="stack">
+          <img src="image/intro/3.png" alt="AI 프로필 사진 생성 예시">
+          <img src="image/intro/4.png" alt="퍼스널 화보 결과물">
+        </div>
+      </div>
+    </div>
+  </header>
 
+  <main>
+    <section id="features" class="section">
+      <h2>세 가지 경험으로 완성하는 나만의 스타일</h2>
+      <p class="lead">가상 피팅부터 프로필, 화보까지. StyleCanvas는 옷과 이미지를 넘어서 당신의 무드를 디자인합니다.</p>
+      <div class="feature-grid">
+        <article class="feature-card">
+          <img src="image/intro/5.png" alt="가상 피팅 화면">
+          <h3>온라인 쇼핑몰 룩을 즉시 입어보기</h3>
+          <p>원하는 옷을 선택하면, AI가 체형에 맞춰 자연스럽게 입혀줍니다. 쇼핑 전에 더 이상 상상에만 의지하지 마세요.</p>
+        </article>
+        <article class="feature-card">
+          <img src="image/intro/6.png" alt="AI 프로필 사진 샘플">
+          <h3>프로필 사진, 이제는 AI 스튜디오 시대로</h3>
+          <p>프로필 사진찍기 어려우셨죠? 스타일만 고르면 AI가 조명과 포즈까지 조율해 스튜디오에서 찍은 것처럼 완성해줘요.</p>
+        </article>
+        <article class="feature-card">
+          <img src="image/intro/7.png" alt="맞춤 화보 결과">
+          <h3>사진 한 장으로 완성하는 나만의 화보</h3>
+          <p>한 장의 사진으로 다양한 콘셉트를 연출하세요. 화보 속 주인공이 되는 일, 이제 StyleCanvas에서 가능합니다.</p>
+        </article>
+      </div>
+    </section>
 
+    <section id="gallery" class="section" style="padding-top: 0;">
+      <h2>StyleCanvas가 만들어낸 영감들</h2>
+      <p class="lead">AI가 그려낸 감각적인 룩과 무드보드를 감상해 보세요. 계속 진화하는 스타일 갤러리입니다.</p>
+      <div class="gallery">
+        <img src="image/intro/8.png" alt="스트리트 캐주얼 룩">
+        <img src="image/intro/9.png" alt="포멀 셋업 스타일">
+        <img src="image/intro/10.png" alt="하이틴 감성 화보">
+        <img src="image/intro/11.jpeg" alt="프로필 포트레이트 결과">
+        <img src="image/intro/3.png" alt="모던 시크 코디">
+        <img src="image/intro/2.png" alt="라이프스타일 촬영컷">
+      </div>
+    </section>
+  </main>
 
-
-
-</body></html>
+  <footer>
+    2024 StyleCanvas. 모든 이미지와 콘텐츠는 예시이며 지속적으로 업데이트됩니다.
+  </footer>
+</body>
+</html>
