@@ -128,6 +128,27 @@
       object-fit: cover;
     }
 
+    .hero-visual .hero-main {
+      filter: saturate(115%) brightness(1.04);
+    }
+
+    .hero-visual .hero-variant {
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      opacity: 0.88;
+      filter: brightness(1.12) saturate(122%);
+      transition: transform 0.3s ease;
+    }
+
+    .hero-visual .hero-variant--primary {
+      transform: translateY(6px);
+    }
+
+    .hero-visual .hero-variant--secondary {
+      opacity: 0.76;
+      filter: brightness(1.05) saturate(115%);
+      transform: translateY(-6px);
+    }
+
     .hero-visual .stack {
       display: grid;
       gap: 18px;
@@ -253,10 +274,10 @@
         </div>
       </div>
       <div class="hero-visual">
-        <img src="image/intro/2.png" alt="StyleCanvas 가상 피팅 미리보기">
+        <img class="hero-main" src="image/intro/1.png" alt="StyleCanvas 앱 메인 화면">
         <div class="stack">
-          <img src="image/intro/3.png" alt="AI 프로필 사진 생성 예시">
-          <img src="image/intro/4.png" alt="퍼스널 화보 결과물">
+          <img class="hero-variant hero-variant--primary" src="image/intro/1.png" alt="StyleCanvas 스타일 하이라이트">
+          <img class="hero-variant hero-variant--secondary" src="image/intro/1.png" alt="StyleCanvas 화보 감성">
         </div>
       </div>
     </div>
@@ -293,8 +314,8 @@
         <img src="image/intro/9.png" alt="포멀 셋업 스타일">
         <img src="image/intro/10.png" alt="하이틴 감성 화보">
         <img src="image/intro/11.jpeg" alt="프로필 포트레이트 결과">
-        <img src="image/intro/3.png" alt="모던 시크 코디">
-        <img src="image/intro/2.png" alt="라이프스타일 촬영컷">
+        <img src="image/intro/1.png" alt="StyleCanvas 앱 메인 화면">
+        <img src="image/intro/1.png" alt="StyleCanvas 스타일 하이라이트">
       </div>
     </section>
   </main>
