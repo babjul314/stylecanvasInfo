@@ -252,6 +252,44 @@
       box-shadow: 0 18px 42px rgba(0, 0, 0, 0.45);
     }
 
+    .contact-card {
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: var(--radius);
+      padding: 40px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(10px);
+      display: grid;
+      gap: 18px;
+      max-width: 720px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .contact-card p {
+      margin: 0;
+      color: rgba(245, 245, 255, 0.78);
+      font-size: 17px;
+    }
+
+    .contact-card a {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      padding: 14px 32px;
+      border-radius: 999px;
+      border: 1px solid rgba(245, 245, 255, 0.4);
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 600;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .contact-card a:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 16px 36px rgba(106, 75, 255, 0.3);
+      border-color: rgba(154, 119, 255, 0.6);
+    }
+
     footer {
       padding: 48px 24px;
       text-align: center;
@@ -355,6 +393,15 @@
         <img src="image/intro/7.png" alt="StyleCanvas 가상 헤어 디테일">
         <img src="image/intro/9.png" alt="AI 스튜디오 화보 연출">
         <img src="image/intro/10.png" alt="미래지향 스타일 보드">
+      </div>
+    </section>
+
+    <section id="support" class="section" style="padding-top: 0;">
+      <h2>고객 민원 및 문의 접수</h2>
+      <p class="lead">StyleCanvas 이용 중 불편하거나 개선이 필요한 점이 있다면 전용 메일로 바로 알려주세요.</p>
+      <div class="contact-card">
+        <p>민원 접수 전용 메일 · stylecanvasai@gmail.com</p>
+        <a href="mailto:stylecanvasai@gmail.com?subject=%5BStyleCanvas%5D%20고객%20민원%20문의" aria-label="민원 접수를 위한 메일 쓰기">메일로 민원 보내기</a>
       </div>
     </section>
   </main>
