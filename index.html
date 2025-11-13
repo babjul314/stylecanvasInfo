@@ -297,6 +297,24 @@
       font-size: 15px;
     }
 
+    footer .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 18px;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+    }
+
+    footer .footer-links a {
+      color: rgba(255, 255, 255, 0.8);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    footer .footer-links a:hover {
+      color: #ffffff;
+    }
+
     @media (max-width: 1024px) {
       .feature-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -404,6 +422,10 @@
   </main>
 
   <footer>
+    <div class="footer-links">
+      <a href="privacy/index.html" target="_blank" rel="noopener noreferrer">개인정보 처리방침</a>
+      <a href="mailto:stylecanvasai@gmail.com">고객 민원 메일</a>
+    </div>
     2024 StyleCanvas. 모든 이미지와 콘텐츠는 예시이며 지속적으로 업데이트됩니다.
   </footer>
 </body>
