@@ -7,6 +7,12 @@
   <meta name="description" content="StyleCanvas - 온라인에서 만나는 개인 맞춤 스타일 스튜디오">
   <title>StyleCanvas 소개</title>
   <link rel="icon" type="image/png" href="favicon.png">
+  <meta property="og:title" content="StyleCanvas - 나만의 디지털 스타일 스튜디오">
+  <meta property="og:description" content="가상 피팅, 헤어 시뮬레이션, AI 스튜디오를 한 번에 경험하고 친구들과 바로 공유하세요.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://stylecanvas.app/">
+  <meta property="og:image" content="/icons/Icon-maskable-512.png">
+  <meta property="og:site_name" content="StyleCanvas">
   <style>
     :root {
       color-scheme: light dark;
@@ -349,12 +355,12 @@
   <header>
     <div class="hero">
       <div class="hero-copy">
-        <p class="tag" style="text-transform: uppercase; letter-spacing: 0.2em; color: rgba(245, 245, 255, 0.6); font-size: 14px;">디지털 스타일 스튜디오</p>
-        <h1>StyleCanvas로 언제 어디서나 나만의 룩을 완성해요</h1>
-        <p>쇼핑몰 옷을 클릭만으로 가상 피팅하고, 원하는 헤어를 즉시 시뮬레이션하며, AI 스튜디오에서 프로필과 화보를 만들고 바로 공유하세요. 스타일 연출의 모든 과정을 하나의 화면에서 끝낼 수 있습니다.</p>
+        <p class="tag" data-i18n="tagline" style="text-transform: uppercase; letter-spacing: 0.2em; color: rgba(245, 245, 255, 0.6); font-size: 14px;">디지털 스타일 스튜디오</p>
+        <h1 data-i18n="hero_title">StyleCanvas로 언제 어디서나 나만의 룩을 완성해요</h1>
+        <p data-i18n="hero_description">쇼핑몰 옷을 클릭만으로 가상 피팅하고, 원하는 헤어를 즉시 시뮬레이션하며, AI 스튜디오에서 프로필과 화보를 만들고 바로 공유하세요. 스타일 연출의 모든 과정을 하나의 화면에서 끝낼 수 있습니다.</p>
         <div class="cta-buttons">
-          <a class="cta-primary" href="#features">핵심 기능 살펴보기</a>
-          <a class="cta-secondary" href="#gallery">스타일 갤러리 보기</a>
+          <a class="cta-primary" href="#features" data-i18n="cta_primary">핵심 기능 살펴보기</a>
+          <a class="cta-secondary" href="#gallery" data-i18n="cta_secondary">스타일 갤러리 보기</a>
         </div>
         <div class="download-links">
           <a class="store-badge" href="https://apps.apple.com/kr/app/style-canvas/id6753784266" target="_blank" rel="noopener noreferrer" aria-label="App Store에서 StyleCanvas 다운로드">
@@ -371,35 +377,35 @@
 
   <main>
     <section id="features" class="section">
-      <h2>네 가지 경험으로 완성하는 나만의 스타일</h2>
-      <p class="lead">가상 피팅, 헤어샵, AI 스튜디오, 그리고 공유까지. StyleCanvas는 처음부터 끝까지 당신의 스타일 여정을 책임집니다.</p>
+      <h2 data-i18n="feature_heading">네 가지 경험으로 완성하는 나만의 스타일</h2>
+      <p class="lead" data-i18n="feature_lead">가상 피팅, 헤어샵, AI 스튜디오, 그리고 공유까지. StyleCanvas는 처음부터 끝까지 당신의 스타일 여정을 책임집니다.</p>
       <div class="feature-grid">
         <article class="feature-card">
           <img src="image/intro/5.png" alt="가상 피팅 화면">
-          <h3>쇼핑몰 룩을 클릭만으로 가상 피팅</h3>
-          <p>원하는 옷을 누르는 순간 AI가 내 체형과 포즈에 맞춰 자연스럽게 입혀줍니다. 쇼핑 전 궁금했던 핏을 실시간으로 확인하세요.</p>
+          <h3 data-i18n="feature1_title">쇼핑몰 룩을 클릭만으로 가상 피팅</h3>
+          <p data-i18n="feature1_desc">원하는 옷을 누르는 순간 AI가 내 체형과 포즈에 맞춰 자연스럽게 입혀줍니다. 쇼핑 전 궁금했던 핏을 실시간으로 확인하세요.</p>
         </article>
         <article class="feature-card">
           <img src="image/intro/7.png" alt="가상 헤어스타일 선택 화면">
-          <h3>헤어샵 메뉴처럼 고르는 가상 헤어</h3>
-          <p>마음에 드는 헤어 이미지를 클릭하면 머릿결, 볼륨, 컬러까지 즉시 입혀져 나에게 어울리는 스타일을 간편하게 테스트할 수 있어요.</p>
+          <h3 data-i18n="feature2_title">헤어샵 메뉴처럼 고르는 가상 헤어</h3>
+          <p data-i18n="feature2_desc">마음에 드는 헤어 이미지를 클릭하면 머릿결, 볼륨, 컬러까지 즉시 입혀져 나에게 어울리는 스타일을 간편하게 테스트할 수 있어요.</p>
         </article>
         <article class="feature-card">
           <img src="image/intro/9.png" alt="AI 스튜디오 프로필 촬영 결과">
-          <h3>프로필과 화보를 만드는 AI 스튜디오</h3>
-          <p>한 장의 사진을 올리면 AI가 조명과 콘셉트를 추천해 스튜디오 퀄리티의 프로필과 화보를 만들어줍니다. 다양한 무드를 손쉽게 저장하세요.</p>
+          <h3 data-i18n="feature3_title">프로필과 화보를 만드는 AI 스튜디오</h3>
+          <p data-i18n="feature3_desc">한 장의 사진을 올리면 AI가 조명과 콘셉트를 추천해 스튜디오 퀄리티의 프로필과 화보를 만들어줍니다. 다양한 무드를 손쉽게 저장하세요.</p>
         </article>
         <article class="feature-card">
           <img src="image/intro/10.png" alt="SNS 공유 프리뷰">
-          <h3>메신저와 SNS로 바로 공유</h3>
-          <p>완성한 룩과 이미지를 그대로 저장하거나 메신저, SNS로 빠르게 전송할 수 있어요. 새로운 스타일을 친구들과 즉시 나눠보세요.</p>
+          <h3 data-i18n="feature4_title">메신저와 SNS로 바로 공유</h3>
+          <p data-i18n="feature4_desc">완성한 룩과 이미지를 그대로 저장하거나 메신저, SNS로 빠르게 전송할 수 있어요. 새로운 스타일을 친구들과 즉시 나눠보세요.</p>
         </article>
       </div>
     </section>
 
     <section id="gallery" class="section" style="padding-top: 0;">
-      <h2>StyleCanvas가 만들어낸 영감들</h2>
-      <p class="lead">AI가 그려낸 감각적인 룩과 무드보드를 감상해 보세요. 계속 진화하는 스타일 갤러리입니다.</p>
+      <h2 data-i18n="gallery_heading">StyleCanvas가 만들어낸 영감들</h2>
+      <p class="lead" data-i18n="gallery_lead">AI가 그려낸 감각적인 룩과 무드보드를 감상해 보세요. 계속 진화하는 스타일 갤러리입니다.</p>
       <div class="gallery">
         <img src="image/intro/3.png" alt="스트리트 캐주얼 룩">
         <img src="image/intro/4.png" alt="포멀 셋업 스타일">
@@ -412,21 +418,101 @@
     </section>
 
     <section id="support" class="section" style="padding-top: 0;">
-      <h2>고객 민원 및 문의 접수</h2>
-      <p class="lead">StyleCanvas 이용 중 불편하거나 개선이 필요한 점이 있다면 전용 메일로 바로 알려주세요.</p>
+      <h2 data-i18n="support_heading">고객 민원 및 문의 접수</h2>
+      <p class="lead" data-i18n="support_lead">StyleCanvas 이용 중 불편하거나 개선이 필요한 점이 있다면 전용 메일로 바로 알려주세요.</p>
       <div class="contact-card">
-        <p>민원 접수 전용 메일 · stylecanvasai@gmail.com</p>
-        <a href="mailto:stylecanvasai@gmail.com?subject=%5BStyleCanvas%5D%20고객%20민원%20문의" aria-label="민원 접수를 위한 메일 쓰기">메일로 민원 보내기</a>
+        <p data-i18n="support_mail_line">민원 접수 전용 메일 · stylecanvasai@gmail.com</p>
+        <a href="mailto:stylecanvasai@gmail.com?subject=%5BStyleCanvas%5D%20고객%20민원%20문의" aria-label="민원 접수를 위한 메일 쓰기" data-i18n="support_button">메일로 민원 보내기</a>
       </div>
     </section>
   </main>
 
   <footer>
     <div class="footer-links">
-      <a href="privacy/index.html" target="_blank" rel="noopener noreferrer">개인정보 처리방침</a>
-      <a href="mailto:stylecanvasai@gmail.com">고객 민원 메일</a>
+      <a href="privacy/index.html" target="_blank" rel="noopener noreferrer" data-i18n="footer_privacy_link">개인정보 처리방침</a>
+      <a href="mailto:stylecanvasai@gmail.com" data-i18n="footer_support_link">고객 민원 메일</a>
     </div>
-    2024 StyleCanvas. 모든 이미지와 콘텐츠는 예시이며 지속적으로 업데이트됩니다.
+    <p data-i18n="footer_text">2024 StyleCanvas. 모든 이미지와 콘텐츠는 예시이며 지속적으로 업데이트됩니다.</p>
   </footer>
+  <script>
+    (function () {
+      const translations = {
+        ko: {
+          tagline: "디지털 스타일 스튜디오",
+          hero_title: "StyleCanvas로 언제 어디서나 나만의 룩을 완성해요",
+          hero_description: "쇼핑몰 옷을 클릭만으로 가상 피팅하고, 원하는 헤어를 즉시 시뮬레이션하며, AI 스튜디오에서 프로필과 화보를 만들고 바로 공유하세요. 스타일 연출의 모든 과정을 하나의 화면에서 끝낼 수 있습니다.",
+          cta_primary: "핵심 기능 살펴보기",
+          cta_secondary: "스타일 갤러리 보기",
+          feature_heading: "네 가지 경험으로 완성하는 나만의 스타일",
+          feature_lead: "가상 피팅, 헤어샵, AI 스튜디오, 그리고 공유까지. StyleCanvas는 처음부터 끝까지 당신의 스타일 여정을 책임집니다.",
+          feature1_title: "쇼핑몰 룩을 클릭만으로 가상 피팅",
+          feature1_desc: "원하는 옷을 누르는 순간 AI가 내 체형과 포즈에 맞춰 자연스럽게 입혀줍니다. 쇼핑 전 궁금했던 핏을 실시간으로 확인하세요.",
+          feature2_title: "헤어샵 메뉴처럼 고르는 가상 헤어",
+          feature2_desc: "마음에 드는 헤어 이미지를 클릭하면 머릿결, 볼륨, 컬러까지 즉시 입혀져 나에게 어울리는 스타일을 간편하게 테스트할 수 있어요.",
+          feature3_title: "프로필과 화보를 만드는 AI 스튜디오",
+          feature3_desc: "한 장의 사진을 올리면 AI가 조명과 콘셉트를 추천해 스튜디오 퀄리티의 프로필과 화보를 만들어줍니다. 다양한 무드를 손쉽게 저장하세요.",
+          feature4_title: "메신저와 SNS로 바로 공유",
+          feature4_desc: "완성한 룩과 이미지를 그대로 저장하거나 메신저, SNS로 빠르게 전송할 수 있어요. 새로운 스타일을 친구들과 즉시 나눠보세요.",
+          gallery_heading: "StyleCanvas가 만들어낸 영감들",
+          gallery_lead: "AI가 그려낸 감각적인 룩과 무드보드를 감상해 보세요. 계속 진화하는 스타일 갤러리입니다.",
+          support_heading: "고객 민원 및 문의 접수",
+          support_lead: "StyleCanvas 이용 중 불편하거나 개선이 필요한 점이 있다면 전용 메일로 바로 알려주세요.",
+          support_mail_line: "민원 접수 전용 메일 · stylecanvasai@gmail.com",
+          support_button: "메일로 민원 보내기",
+          footer_privacy_link: "개인정보 처리방침",
+          footer_support_link: "고객 민원 메일",
+          footer_text: "2024 StyleCanvas. 모든 이미지와 콘텐츠는 예시이며 지속적으로 업데이트됩니다."
+        },
+        en: {
+          tagline: "DIGITAL STYLE STUDIO",
+          hero_title: "Finish your signature look anywhere with StyleCanvas",
+          hero_description: "Try on shop outfits virtually with a tap, simulate hairstyles instantly, create AI portraits and editorials, and share them in seconds—all in one studio.",
+          cta_primary: "See core features",
+          cta_secondary: "View style gallery",
+          feature_heading: "Four experiences, one personal studio",
+          feature_lead: "Virtual fitting, hair salon, AI studio, and instant sharing—StyleCanvas covers every step of your styling journey.",
+          feature1_title: "Virtual fittings from any shop look",
+          feature1_desc: "Tap the outfit you like and our AI adapts it to your body and pose so you can preview the fit before you buy.",
+          feature2_title: "Hair simulation like a salon menu",
+          feature2_desc: "Pick a hairstyle image and see realistic texture, volume, and color applied to you in seconds.",
+          feature3_title: "AI studio for profiles & editorials",
+          feature3_desc: "Upload a single photo and the AI suggests lighting and concepts to produce studio-quality portraits.",
+          feature4_title: "Share directly to messengers & socials",
+          feature4_desc: "Save or send your finished looks straight to chat apps and social feeds to inspire friends instantly.",
+          gallery_heading: "Inspiration from StyleCanvas",
+          gallery_lead: "Browse evolving AI-created looks and mood boards from our community studio.",
+          support_heading: "Customer complaints & inquiries",
+          support_lead: "If you hit issues or have ideas for improvements, drop us a note via the dedicated mailbox.",
+          support_mail_line: "Complaint mailbox · stylecanvasai@gmail.com",
+          support_button: "Send complaint email",
+          footer_privacy_link: "Privacy Policy",
+          footer_support_link: "Support Mailbox",
+          footer_text: "2024 StyleCanvas. Images and content are samples and updated continuously."
+        }
+      };
+
+      function resolveLanguage() {
+        const browserLang = (navigator.language || navigator.userLanguage || "en").split("-")[0].toLowerCase();
+        return translations[browserLang] ? browserLang : "en";
+      }
+
+      function applyTranslations(lang) {
+        const dict = translations[lang];
+        if (!dict) return;
+        document.documentElement.lang = lang;
+        document.querySelectorAll('[data-i18n]').forEach((el) => {
+          const key = el.getAttribute('data-i18n');
+          if (dict[key]) {
+            el.textContent = dict[key];
+          }
+        });
+      }
+
+      document.addEventListener('DOMContentLoaded', function () {
+        const lang = resolveLanguage();
+        applyTranslations(lang);
+      });
+    })();
+  </script>
 </body>
 </html>
