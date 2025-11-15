@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>StyleCanvas 앱 다운로드</title>
+  <meta name="description" content="기기 유형을 감지해 StyleCanvas 다운로드 링크로 안내합니다.">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <style>
+    body {
+      margin: 0;
+      font-family: "Noto Sans KR", "Apple SD Gothic Neo", system-ui, sans-serif;
+      background: linear-gradient(160deg, #090916, #0f1124 55%, #1a122e);
+      color: #ffffff;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 32px;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 20px;
+      padding: 40px;
+      width: min(480px, 100%);
+      text-align: center;
+      backdrop-filter: blur(12px);
+    }
+
+    h1 {
+      margin: 0 0 12px;
+      font-size: 26px;
+    }
+
+    p {
+      margin: 0 0 18px;
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    .links {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .links a {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      padding: 14px 24px;
+      border-radius: 12px;
+      font-weight: 600;
+      text-decoration: none;
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .links a.primary {
+      background: linear-gradient(135deg, #9a77ff, #6a4bff);
+      border: none;
+    }
+
+    .links small {
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.7);
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>StyleCanvas 다운로드 중</h1>
+    <p>이 페이지는 사용자의 기기를 확인한 뒤 적절한 스토어 링크로 자동 이동합니다. 잠시만 기다려 주세요.</p>
+    <div class="links">
+      <a id="fallback-link" class="primary" href="index.html">StyleCanvas 소개 페이지로 이동</a>
+      <small>자동 이동이 되지 않는다면 아래 버튼을 직접 눌러주세요.</small>
+      <a href="https://apps.apple.com/kr/app/style-canvas/id6753784266">iOS 다운로드</a>
+      <a href="https://play.google.com/store/apps/details?id=com.babjul.givemehanger">Android 다운로드</a>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const IOS_URL = "https://apps.apple.com/kr/app/style-canvas/id6753784266";
+      const ANDROID_URL = "https://play.google.com/store/apps/details?id=com.babjul.givemehanger";
+      const FALLBACK_URL = "index.html";
+
+      function detectPlatform() {
+        const ua = navigator.userAgent || navigator.vendor || window.opera || "";
+        if (/android/i.test(ua)) {
+          return ANDROID_URL;
+        }
+        if (/iPad|iPhone|iPod/i.test(ua)) {
+          return IOS_URL;
+        }
+        if (navigator.userAgentData && navigator.userAgentData.platform) {
+          const platform = navigator.userAgentData.platform.toLowerCase();
+          if (platform.includes("android")) return ANDROID_URL;
+          if (platform.includes("ios") || platform.includes("mac")) return IOS_URL;
+        }
+        return null;
+      }
+
+      const target = detectPlatform();
+      const redirectUrl = target || FALLBACK_URL;
+      const fallbackLink = document.getElementById("fallback-link");
+      if (fallbackLink) {
+        fallbackLink.href = redirectUrl;
+      }
+      setTimeout(() => {
+        window.location.replace(redirectUrl);
+      }, 600);
+    })();
+  </script>
+</body>
+</html>
