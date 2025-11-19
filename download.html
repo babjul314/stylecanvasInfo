@@ -2,89 +2,527 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>StyleCanvas 앱 다운로드</title>
-  <meta name="description" content="기기 유형을 감지해 StyleCanvas 다운로드 링크로 안내합니다.">
+  <meta name="description" content="StyleCanvas - 온라인에서 만나는 개인 맞춤 스타일 스튜디오">
+  <title>StyleCanvas 소개</title>
   <link rel="icon" type="image/png" href="favicon.png">
+  <meta property="og:title" content="StyleCanvas - 나만의 디지털 스타일 스튜디오">
+  <meta property="og:description" content="가상 피팅, 헤어 시뮬레이션, AI 스튜디오를 한 번에 경험하고 친구들과 바로 공유하세요.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://stylecanvas.app/">
+  <meta property="og:image" content="/icons/Icon-maskable-512.png">
+  <meta property="og:site_name" content="StyleCanvas">
   <style>
+    :root {
+      color-scheme: light dark;
+      --bg: #080810;
+      --bg-alt: #101020;
+      --card-bg: #ffffff;
+      --card-bg-dark: rgba(255, 255, 255, 0.08);
+      --accent: #9a77ff;
+      --accent-strong: #6a4bff;
+      --text: #1f1f2b;
+      --text-light: #5a5a72;
+      --radius: 18px;
+      font-family: "Noto Sans KR", "Apple SD Gothic Neo", "Segoe UI", sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
-      font-family: "Noto Sans KR", "Apple SD Gothic Neo", system-ui, sans-serif;
       background: linear-gradient(160deg, #090916, #0f1124 55%, #1a122e);
-      color: #ffffff;
+      color: #f5f5ff;
+      line-height: 1.6;
       min-height: 100vh;
+    }
+
+    header {
+      position: relative;
+      overflow: hidden;
+      padding: 76px 24px 120px;
+    }
+
+    header::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: linear-gradient(120deg, rgba(10, 10, 30, 0.9), rgba(15, 15, 35, 0.4)), url("image/intro/5.png");
+      background-size: cover;
+      background-position: center;
+      filter: saturate(108%);
+      z-index: -2;
+    }
+
+    header::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(9, 9, 22, 0.65) 0%, rgba(9, 9, 22, 0.85) 100%);
+      z-index: -1;
+    }
+
+    .hero {
+      max-width: 1120px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 48px;
+      align-items: center;
+    }
+
+    .hero-copy h1 {
+      font-size: clamp(32px, 5vw, 52px);
+      margin: 0;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+    }
+
+    .hero-copy p {
+      margin: 24px 0 32px;
+      font-size: 18px;
+      color: rgba(245, 245, 255, 0.8);
+    }
+
+    .download-links {
+      margin-top: 24px;
       display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .store-badge {
+      display: inline-flex;
       align-items: center;
       justify-content: center;
-      padding: 32px;
+      text-decoration: none;
+      padding: 0;
     }
 
-    .card {
-      background: rgba(255, 255, 255, 0.08);
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      border-radius: 20px;
-      padding: 40px;
-      width: min(480px, 100%);
-      text-align: center;
-      backdrop-filter: blur(12px);
+    .store-badge img {
+      height: 48px;
+      width: auto;
+      display: block;
+      transition: transform 0.2s ease;
     }
 
-    h1 {
-      margin: 0 0 12px;
-      font-size: 26px;
+    .store-badge.store-badge--active img {
+      transform: translateY(-2px);
+      filter: drop-shadow(0 10px 24px rgba(106, 75, 255, 0.45));
     }
 
-    p {
-      margin: 0 0 18px;
-      color: rgba(255, 255, 255, 0.8);
+    .store-badge:hover img {
+      transform: translateY(-2px);
     }
 
-    .links {
+    .cta-buttons {
       display: flex;
-      flex-direction: column;
+      flex-wrap: wrap;
       gap: 12px;
-      margin-top: 24px;
     }
 
-    .links a {
+    .cta-buttons a {
+      text-decoration: none;
+      padding: 14px 28px;
+      border-radius: 999px;
+      font-weight: 600;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .cta-primary {
+      color: #ffffff;
+      background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+      box-shadow: 0 12px 32px rgba(106, 75, 255, 0.35);
+    }
+
+    .cta-secondary {
+      color: rgba(245, 245, 255, 0.85);
+      border: 1px solid rgba(245, 245, 255, 0.35);
+      background: transparent;
+    }
+
+    .cta-buttons a:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 16px 36px rgba(106, 75, 255, 0.45);
+    }
+
+    .hero-visual {
+      position: relative;
+      display: grid;
+      gap: 18px;
+    }
+
+    .hero-visual img {
+      width: 100%;
+      border-radius: var(--radius);
+      box-shadow: 0 24px 42px rgba(0, 0, 0, 0.35);
+      object-fit: cover;
+    }
+
+    .hero-visual .hero-main {
+      filter: saturate(115%) brightness(1.04);
+    }
+
+    .hero-visual .hero-variant {
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      opacity: 0.9;
+      filter: brightness(1.08) saturate(115%);
+      transition: transform 0.3s ease;
+    }
+
+    .hero-visual .hero-variant--secondary {
+      opacity: 0.8;
+      filter: brightness(1.05) saturate(115%);
+      transform: translateY(-6px);
+    }
+
+    .section {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 96px 24px;
+    }
+
+    .section h2 {
+      font-size: clamp(24px, 4vw, 40px);
+      margin-bottom: 16px;
+      color: #fdfdff;
+    }
+
+    .section p.lead {
+      color: rgba(245, 245, 255, 0.72);
+      margin: 0 0 48px;
+      font-size: 18px;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 32px;
+    }
+
+    .feature-card {
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: var(--radius);
+      padding: 28px;
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      display: grid;
+      gap: 18px;
+      transition: transform 0.3s ease, border 0.3s ease;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(154, 119, 255, 0.55);
+    }
+
+    .feature-card img {
+      width: 100%;
+      border-radius: calc(var(--radius) - 6px);
+      object-fit: cover;
+      aspect-ratio: 4 / 3;
+    }
+
+    .feature-card h3 {
+      margin: 0;
+      font-size: 20px;
+      color: #ffffff;
+    }
+
+    .feature-card p {
+      margin: 0;
+      color: rgba(245, 245, 255, 0.78);
+      font-size: 16px;
+    }
+
+    .gallery {
+      margin-top: 64px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 18px;
+    }
+
+    .gallery img {
+      width: 100%;
+      border-radius: 16px;
+      object-fit: cover;
+      aspect-ratio: 3 / 4;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+    }
+
+    .gallery img:hover {
+      transform: translateY(-6px) scale(1.01);
+      box-shadow: 0 18px 42px rgba(0, 0, 0, 0.45);
+    }
+
+    .contact-card {
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: var(--radius);
+      padding: 40px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(10px);
+      display: grid;
+      gap: 18px;
+      max-width: 720px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .contact-card p {
+      margin: 0;
+      color: rgba(245, 245, 255, 0.78);
+      font-size: 17px;
+    }
+
+    .contact-card a {
       display: inline-flex;
       justify-content: center;
       align-items: center;
-      padding: 14px 24px;
-      border-radius: 12px;
-      font-weight: 600;
-      text-decoration: none;
+      padding: 14px 32px;
+      border-radius: 999px;
+      border: 1px solid rgba(245, 245, 255, 0.4);
       color: #ffffff;
-      border: 1px solid rgba(255, 255, 255, 0.3);
+      text-decoration: none;
+      font-weight: 600;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
 
-    .links a.primary {
-      background: linear-gradient(135deg, #9a77ff, #6a4bff);
-      border: none;
+    .contact-card a:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 16px 36px rgba(106, 75, 255, 0.3);
+      border-color: rgba(154, 119, 255, 0.6);
     }
 
-    .links small {
-      font-size: 13px;
-      color: rgba(255, 255, 255, 0.7);
+    footer {
+      padding: 48px 24px;
+      text-align: center;
+      color: rgba(255, 255, 255, 0.55);
+      font-size: 15px;
+    }
+
+    footer .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 18px;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+    }
+
+    footer .footer-links a {
+      color: rgba(255, 255, 255, 0.8);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    footer .footer-links a:hover {
+      color: #ffffff;
+    }
+
+    @media (max-width: 1024px) {
+      .feature-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 640px) {
+      header {
+        padding: 68px 20px 96px;
+      }
+
+      .feature-card {
+        padding: 24px;
+      }
+
+      .feature-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .cta-buttons {
+        width: 100%;
+      }
+
+      .cta-buttons a {
+        flex: 1;
+        text-align: center;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="card">
-    <h1>StyleCanvas 다운로드 중</h1>
-    <p>이 페이지는 사용자의 기기를 확인한 뒤 적절한 스토어 링크로 자동 이동합니다. 잠시만 기다려 주세요.</p>
-    <div class="links">
-      <a id="fallback-link" class="primary" href="index.html">StyleCanvas 소개 페이지로 이동</a>
-      <small>자동 이동이 되지 않는다면 아래 버튼을 직접 눌러주세요.</small>
-      <a href="https://apps.apple.com/kr/app/style-canvas/id6753784266">iOS 다운로드</a>
-      <a href="https://play.google.com/store/apps/details?id=com.babjul.givemehanger">Android 다운로드</a>
+  <header>
+    <div class="hero">
+      <div class="hero-copy">
+        <p class="tag" data-i18n="tagline" style="text-transform: uppercase; letter-spacing: 0.2em; color: rgba(245, 245, 255, 0.6); font-size: 14px;">디지털 스타일 스튜디오</p>
+        <h1 data-i18n="hero_title">StyleCanvas로 언제 어디서나 나만의 룩을 완성해요</h1>
+        <p data-i18n="hero_description">쇼핑몰 옷을 클릭만으로 가상 피팅하고, 원하는 헤어를 즉시 시뮬레이션하며, AI 스튜디오에서 프로필과 화보를 만들고 바로 공유하세요. 스타일 연출의 모든 과정을 하나의 화면에서 끝낼 수 있습니다.</p>
+        <div class="cta-buttons">
+          <a class="cta-primary" href="#features" data-i18n="cta_primary">핵심 기능 살펴보기</a>
+          <a class="cta-secondary" href="#gallery" data-i18n="cta_secondary">스타일 갤러리 보기</a>
+        </div>
+        <div class="download-links">
+          <a class="store-badge" data-store="ios" href="https://apps.apple.com/kr/app/style-canvas/id6753784266" target="_blank" rel="noopener noreferrer" aria-label="App Store에서 StyleCanvas 다운로드">
+            <img src="image/badges/app-store.svg" alt="Download on the App Store">
+          </a>
+          <a class="store-badge" data-store="android" href="https://play.google.com/store/apps/details?id=com.babjul.givemehanger" target="_blank" rel="noopener noreferrer" aria-label="Google Play에서 StyleCanvas 다운로드">
+            <img src="image/badges/google-play.png" alt="Get it on Google Play">
+          </a>
+        </div>
+      </div>
+
     </div>
-  </div>
+  </header>
+
+  <main>
+    <section id="features" class="section">
+      <h2 data-i18n="feature_heading">네 가지 경험으로 완성하는 나만의 스타일</h2>
+      <p class="lead" data-i18n="feature_lead">가상 피팅, 헤어샵, AI 스튜디오, 그리고 공유까지. StyleCanvas는 처음부터 끝까지 당신의 스타일 여정을 책임집니다.</p>
+      <div class="feature-grid">
+        <article class="feature-card">
+          <img src="image/intro/5.png" alt="가상 피팅 화면">
+          <h3 data-i18n="feature1_title">쇼핑몰 룩을 클릭만으로 가상 피팅</h3>
+          <p data-i18n="feature1_desc">원하는 옷을 누르는 순간 AI가 내 체형과 포즈에 맞춰 자연스럽게 입혀줍니다. 쇼핑 전 궁금했던 핏을 실시간으로 확인하세요.</p>
+        </article>
+        <article class="feature-card">
+          <img src="image/intro/7.png" alt="가상 헤어스타일 선택 화면">
+          <h3 data-i18n="feature2_title">헤어샵 메뉴처럼 고르는 가상 헤어</h3>
+          <p data-i18n="feature2_desc">마음에 드는 헤어 이미지를 클릭하면 머릿결, 볼륨, 컬러까지 즉시 입혀져 나에게 어울리는 스타일을 간편하게 테스트할 수 있어요.</p>
+        </article>
+        <article class="feature-card">
+          <img src="image/intro/9.png" alt="AI 스튜디오 프로필 촬영 결과">
+          <h3 data-i18n="feature3_title">프로필과 화보를 만드는 AI 스튜디오</h3>
+          <p data-i18n="feature3_desc">한 장의 사진을 올리면 AI가 조명과 콘셉트를 추천해 스튜디오 퀄리티의 프로필과 화보를 만들어줍니다. 다양한 무드를 손쉽게 저장하세요.</p>
+        </article>
+        <article class="feature-card">
+          <img src="image/intro/10.png" alt="SNS 공유 프리뷰">
+          <h3 data-i18n="feature4_title">메신저와 SNS로 바로 공유</h3>
+          <p data-i18n="feature4_desc">완성한 룩과 이미지를 그대로 저장하거나 메신저, SNS로 빠르게 전송할 수 있어요. 새로운 스타일을 친구들과 즉시 나눠보세요.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="gallery" class="section" style="padding-top: 0;">
+      <h2 data-i18n="gallery_heading">StyleCanvas가 만들어낸 영감들</h2>
+      <p class="lead" data-i18n="gallery_lead">AI가 그려낸 감각적인 룩과 무드보드를 감상해 보세요. 계속 진화하는 스타일 갤러리입니다.</p>
+      <div class="gallery">
+        <img src="image/intro/3.png" alt="스트리트 캐주얼 룩">
+        <img src="image/intro/4.png" alt="포멀 셋업 스타일">
+        <img src="image/intro/5.png" alt="하이틴 감성 화보">
+        <img src="image/intro/6.png" alt="프로필 포트레이트 결과">
+        <img src="image/intro/7.png" alt="StyleCanvas 가상 헤어 디테일">
+        <img src="image/intro/9.png" alt="AI 스튜디오 화보 연출">
+        <img src="image/intro/10.png" alt="미래지향 스타일 보드">
+      </div>
+    </section>
+
+    <section id="support" class="section" style="padding-top: 0;">
+      <h2 data-i18n="support_heading">고객 민원 및 문의 접수</h2>
+      <p class="lead" data-i18n="support_lead">StyleCanvas 이용 중 불편하거나 개선이 필요한 점이 있다면 전용 메일로 바로 알려주세요.</p>
+      <div class="contact-card">
+        <p data-i18n="support_mail_line">민원 접수 전용 메일 · stylecanvasai@gmail.com</p>
+        <a href="mailto:stylecanvasai@gmail.com?subject=%5BStyleCanvas%5D%20고객%20민원%20문의" aria-label="민원 접수를 위한 메일 쓰기" data-i18n="support_button">메일로 민원 보내기</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-links">
+      <a href="privacy/index.html" target="_blank" rel="noopener noreferrer" data-i18n="footer_privacy_link">개인정보 처리방침</a>
+      <a href="mailto:stylecanvasai@gmail.com" data-i18n="footer_support_link">고객 민원 메일</a>
+    </div>
+    <p data-i18n="footer_text">2024 StyleCanvas. 모든 이미지와 콘텐츠는 예시이며 지속적으로 업데이트됩니다.</p>
+  </footer>
+  <script>
+    (function () {
+      const translations = {
+        ko: {
+          tagline: "디지털 스타일 스튜디오",
+          hero_title: "StyleCanvas로 언제 어디서나 나만의 룩을 완성해요",
+          hero_description: "쇼핑몰 옷을 클릭만으로 가상 피팅하고, 원하는 헤어를 즉시 시뮬레이션하며, AI 스튜디오에서 프로필과 화보를 만들고 바로 공유하세요. 스타일 연출의 모든 과정을 하나의 화면에서 끝낼 수 있습니다.",
+          cta_primary: "핵심 기능 살펴보기",
+          cta_secondary: "스타일 갤러리 보기",
+          feature_heading: "네 가지 경험으로 완성하는 나만의 스타일",
+          feature_lead: "가상 피팅, 헤어샵, AI 스튜디오, 그리고 공유까지. StyleCanvas는 처음부터 끝까지 당신의 스타일 여정을 책임집니다.",
+          feature1_title: "쇼핑몰 룩을 클릭만으로 가상 피팅",
+          feature1_desc: "원하는 옷을 누르는 순간 AI가 내 체형과 포즈에 맞춰 자연스럽게 입혀줍니다. 쇼핑 전 궁금했던 핏을 실시간으로 확인하세요.",
+          feature2_title: "헤어샵 메뉴처럼 고르는 가상 헤어",
+          feature2_desc: "마음에 드는 헤어 이미지를 클릭하면 머릿결, 볼륨, 컬러까지 즉시 입혀져 나에게 어울리는 스타일을 간편하게 테스트할 수 있어요.",
+          feature3_title: "프로필과 화보를 만드는 AI 스튜디오",
+          feature3_desc: "한 장의 사진을 올리면 AI가 조명과 콘셉트를 추천해 스튜디오 퀄리티의 프로필과 화보를 만들어줍니다. 다양한 무드를 손쉽게 저장하세요.",
+          feature4_title: "메신저와 SNS로 바로 공유",
+          feature4_desc: "완성한 룩과 이미지를 그대로 저장하거나 메신저, SNS로 빠르게 전송할 수 있어요. 새로운 스타일을 친구들과 즉시 나눠보세요.",
+          gallery_heading: "StyleCanvas가 만들어낸 영감들",
+          gallery_lead: "AI가 그려낸 감각적인 룩과 무드보드를 감상해 보세요. 계속 진화하는 스타일 갤러리입니다.",
+          support_heading: "고객 민원 및 문의 접수",
+          support_lead: "StyleCanvas 이용 중 불편하거나 개선이 필요한 점이 있다면 전용 메일로 바로 알려주세요.",
+          support_mail_line: "민원 접수 전용 메일 · stylecanvasai@gmail.com",
+          support_button: "메일로 민원 보내기",
+          footer_privacy_link: "개인정보 처리방침",
+          footer_support_link: "고객 민원 메일",
+          footer_text: "2024 StyleCanvas. 모든 이미지와 콘텐츠는 예시이며 지속적으로 업데이트됩니다."
+        },
+        en: {
+          tagline: "DIGITAL STYLE STUDIO",
+          hero_title: "Finish your signature look anywhere with StyleCanvas",
+          hero_description: "Try on shop outfits virtually with a tap, simulate hairstyles instantly, create AI portraits and editorials, and share them in seconds—all in one studio.",
+          cta_primary: "See core features",
+          cta_secondary: "View style gallery",
+          feature_heading: "Four experiences, one personal studio",
+          feature_lead: "Virtual fitting, hair salon, AI studio, and instant sharing—StyleCanvas covers every step of your styling journey.",
+          feature1_title: "Virtual fittings from any shop look",
+          feature1_desc: "Tap the outfit you like and our AI adapts it to your body and pose so you can preview the fit before you buy.",
+          feature2_title: "Hair simulation like a salon menu",
+          feature2_desc: "Pick a hairstyle image and see realistic texture, volume, and color applied to you in seconds.",
+          feature3_title: "AI studio for profiles & editorials",
+          feature3_desc: "Upload a single photo and the AI suggests lighting and concepts to produce studio-quality portraits.",
+          feature4_title: "Share directly to messengers & socials",
+          feature4_desc: "Save or send your finished looks straight to chat apps and social feeds to inspire friends instantly.",
+          gallery_heading: "Inspiration from StyleCanvas",
+          gallery_lead: "Browse evolving AI-created looks and mood boards from our community studio.",
+          support_heading: "Customer complaints & inquiries",
+          support_lead: "If you hit issues or have ideas for improvements, drop us a note via the dedicated mailbox.",
+          support_mail_line: "Complaint mailbox · stylecanvasai@gmail.com",
+          support_button: "Send complaint email",
+          footer_privacy_link: "Privacy Policy",
+          footer_support_link: "Support Mailbox",
+          footer_text: "2024 StyleCanvas. Images and content are samples and updated continuously."
+        }
+      };
+
+      function resolveLanguage() {
+        const browserLang = (navigator.language || navigator.userLanguage || "en").split("-")[0].toLowerCase();
+        return translations[browserLang] ? browserLang : "en";
+      }
+
+      function applyTranslations(lang) {
+        const dict = translations[lang];
+        if (!dict) return;
+        document.documentElement.lang = lang;
+        document.querySelectorAll('[data-i18n]').forEach((el) => {
+          const key = el.getAttribute('data-i18n');
+          if (dict[key]) {
+            el.textContent = dict[key];
+          }
+        });
+      }
+
+      document.addEventListener('DOMContentLoaded', function () {
+        const lang = resolveLanguage();
+        applyTranslations(lang);
+      });
+    })();
+  </script>
   <script>
     (function () {
       const IOS_URL = "https://apps.apple.com/kr/app/style-canvas/id6753784266";
       const ANDROID_URL = "https://play.google.com/store/apps/details?id=com.babjul.givemehanger";
-      const FALLBACK_URL = "index.html";
 
       function detectPlatform() {
         const ua = navigator.userAgent || navigator.vendor || window.opera || "";
@@ -102,15 +540,25 @@
         return null;
       }
 
-      const target = detectPlatform();
-      const redirectUrl = target || FALLBACK_URL;
-      const fallbackLink = document.getElementById("fallback-link");
-      if (fallbackLink) {
-        fallbackLink.href = redirectUrl;
+      function highlightBadge(url) {
+        const targetStore = url === IOS_URL ? 'ios' : 'android';
+        const badge = document.querySelector(`[data-store="${targetStore}"]`);
+        if (badge) {
+          badge.classList.add('store-badge--active');
+          badge.setAttribute('title', '잠시 후 스토어로 이동합니다');
+        }
       }
-      setTimeout(() => {
-        window.location.replace(redirectUrl);
-      }, 600);
+
+      document.addEventListener('DOMContentLoaded', function () {
+        const redirectUrl = detectPlatform();
+        if (!redirectUrl) {
+          return;
+        }
+        highlightBadge(redirectUrl);
+        setTimeout(() => {
+          window.location.replace(redirectUrl);
+        }, 600);
+      });
     })();
   </script>
 </body>
